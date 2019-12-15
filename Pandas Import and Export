@@ -29,3 +29,10 @@ all_filenames = [i for i in glob.glob('*.{}'.format(extension))]
 
 #combine all files in the list
 combined_csv = pd.concat([pd.read_csv(f, header=None, delimiter="\t") for f in all_filenames])
+
+
+
+
+
+##export to csv##
+df.to_csv("C:/Users/User/Documents/Python Scripts/Data/test.csv", index = False, header = False, encoding='utf-8-sig')
