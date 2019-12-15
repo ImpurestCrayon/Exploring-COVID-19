@@ -1,0 +1,31 @@
+##one file##
+
+#Libaries
+import pandas as pd
+
+#filepath to doc
+filepath = "C:/Users/User/Documents/Python Scripts/Data/GDELT/20190918.export.csv"
+
+#read in csv with tab delimiter, no headers, ignore warnings
+data1 = pd.read_csv(filepath, header=None, delimiter="\t", low_memory=False)
+
+
+
+
+##multiple files##
+
+#Libaries
+import os
+import glob
+import pandas as pd
+import numpy as np
+import csv
+
+#Set Variables and map to Folder
+filepath = "C:/Users/User/Documents/Python Scripts/Data/GDELT"
+extension = 'csv'
+os.chdir(filepath)
+all_filenames = [i for i in glob.glob('*.{}'.format(extension))]
+
+#combine all files in the list
+combined_csv = pd.concat([pd.read_csv(f, header=None, delimiter="\t") for f in all_filenames])
